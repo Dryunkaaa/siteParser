@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+    <title>Вход в систему</title>
+
+    <meta charset="UTF-8">
+</head>
+<body class="bg-secondary">
+<div class="container bg-danger" th:if="${param.error}">
+    <h3>Неправильный логин или пароль.</h3>
+</div>
+<div class="container bg-success" th:if="${param.logout}">
+    <h3>Вы успешно вышли из системы.</h3>
+</div>
+
+<div class="container">
+    <div class="card text-center">
+        <div class="container bg-info"><h3>Вход в систему</h3></div>
+            <form th:action="@{/login}" method="post">
+                <div class="mt-2"><label> Логин : <input placeholder="Введите ваш логин" class="form-control" type="text" name="username"/> </label></div>
+                <div><label> Пароль: <input placeholder="Введите ваш пароль" class="form-control" type="password" name="password"/> </label></div>
+                <!--<div><input class="btn btn-primary float-right mr-2 mb-2" type="submit" value="Войти"/></div>-->
+                <!--<div><input class="btn btn-primary float-right mr-2 mb-2" type="submit" value="Войти"/></div>-->
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col text-center">
+                            <input class="btn btn-primary mr-2 mb-2" type="submit" value="Войти"/>
+                            <a href="/register" class="btn btn btn-primary ml-1 mb-2">Регистрация</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+</body>
+</html>

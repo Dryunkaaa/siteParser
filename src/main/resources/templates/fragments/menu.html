@@ -1,0 +1,9 @@
+<div th:fragment="top-menu" class="d-block bg-secondary" xmlns:th="http://www.w3.org/1999/xhtml">
+    <a href="/" class="btn btn-secondary">Главная</a>
+    <a href="/projects" class="btn btn-secondary">Проекты</a>
+    <a th:if="${isAdmin}" href="/admin" class="btn btn-secondary">Пользователи</a>
+    <span th:if="${user!=null}" th:text="'Вы вошли как ' + ${user.username}">Вы вошли как</span>
+    <a th:if="${user!=null}" href="/logout" class="btn btn-secondary float-right">Выйти</a>
+    <a th:if="${user==null}" href="/login" class="btn btn-secondary float-right">Войти</a>
+    <a th:if="${user!=null}" href="/user/info" class="btn btn-secondary float-right">Данные</a>
+</div>
